@@ -89,52 +89,7 @@ function Home(){
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div className="row mt4">
-                <div className="col-md-4"></div>
-                <div className="col-md-4">
-                    <table className="table table-responsive table-bordered table-style">
-                        <thead>
-                            <tr>
-                            <th scope="col">Medicine Name</th>
-                            <th scope="col">Medicine Availability</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>Adderall</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>Acetaminophen</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>Panadol</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>fluphenazine</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>Atorvastatin</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>Peracitamol</td>
-                            <td>Yes</td>
-                            </tr>
-                            <tr>
-                            <td>Amoxal</td>
-                            <td>Yes</td>
-                            </tr>
-                        </tbody>
-                    </table> 
-                </div>
-                <div className="col-md-4"></div>
-            </div>   
+            </div>  
         </div>
     );
 }
