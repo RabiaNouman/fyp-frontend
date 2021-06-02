@@ -63,8 +63,8 @@ a:hover, a:focus, a:active {
   color: inherit;
 }
 
-.signin-form{
-  height: 450px;
+.form-box{
+  height: auto;
   padding: 25px;
   margin-bottom: 30px;
   text-align: center;
@@ -78,6 +78,7 @@ a:hover, a:focus, a:active {
   
   border-radius: 50px;
 }
+
 
 /* =============================================================================
   Layout

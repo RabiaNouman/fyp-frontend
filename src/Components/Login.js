@@ -50,7 +50,7 @@ function Login() {
         <div className="row">
           <div className="col-md-4"></div>
           <div className="col-md-4">
-            <form onSubmit={login} className="signin-form footer-form">
+            <form onSubmit={login} className="form-box footer-form">
               <div className="form-group text-center mt-5">
                 <div className="form-group">
                   <br />
