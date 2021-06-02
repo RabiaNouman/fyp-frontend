@@ -1,40 +1,59 @@
 import React, { useState } from "react";
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
 import Header from "./Header";
-import Home from "./Home";
-import Register from "./Register";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [choice, setChoice] = useState("");
 
   function login(event) {
     event.preventDefault();
     const user = {
-      username,
+      email,
       password,
     };
 
-    console.log(username);
+    console.log(email);
     console.log(password);
-
-    return fetch("/administrator/login", {
-      method: "post",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      if (res.status == 400) {
-        window.location.href = "/donar-dashboard";
-      }
-   });
+    console.log(choice);
+    if(choice==="admin")
+    {
+      return fetch("/administrator/login", {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        console.log(res.status)
+        if (res.status == 400) {
+          window.location.href = "/donar-dashboard";
+          console.log(res.status)
+        }
+      });
+    }
+    else if(choice==="donor")
+    {
+      return fetch("/donor/login", {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        console.log(res.status)
+        if (res.status == 400) {
+          window.location.href = "/donar-dashboard";
+          console.log(res.status)
+        }
+      });
+    }
   }
 
   return (
     <div className="div-bg-color">
-      <Header/>
+      <Header />
       <div className="page-heading text-center">
         <div className="container zoomIn animated">
           <h1 className="page-title">
@@ -62,13 +81,13 @@ function Login() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
-                    name="username"
+                    type="email"
+                    name="email"
                     onChange={(event) => {
-                      setUsername(event.target.value);
+                      setEmail(event.target.value);
                     }}
                     className="form-control"
-                    placeholder="UserName*"
+                    placeholder="Email*"
                     required
                   />
                   <br />
@@ -86,6 +105,30 @@ function Login() {
                   />
                   <br />
                   <br />
+                </div>
+                <div className="form-group radio">
+                  <label>
+                    <input
+                      type="radio"
+                      name="choice"
+                      value="admin"
+                      onChange={(event) => {
+                        setChoice(event.target.value);
+                      }}
+                    />
+                    Admin
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="choice"
+                      value="donor"
+                      onChange={(event) => {
+                        setChoice(event.target.value);
+                      }}
+                    />
+                    Donor
+                  </label>
                 </div>
                 <div className="form-group">
                   <button type="submit" className="btn btn-primary">
