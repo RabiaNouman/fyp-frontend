@@ -2,7 +2,6 @@ import React from "react";
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
-import Login from "./Login";
 import Contact from "./Contact";
 
 function Header() {
@@ -96,15 +95,18 @@ function Header() {
                   <li>
                     <Link to="./">HOME</Link>
                   </li>
+                  {/* <li>
+                    <Link to="/medicine">MEDICINE</Link>
+                  </li> */}
                   <li className="has-child">
                     <Link to="/about">ABOUT</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/login">SIGNIN</Link>
                   </li>
                   <li>
                     <Link to="/register">REGISTER</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/contact">CONTACT</Link>
                   </li>
@@ -114,13 +116,18 @@ function Header() {
                     <Route exact path="./">
                       <Home />
                     </Route>
+                    {/* <Route exact path="./medicine">
+                      <Medicine />
+                    </Route> */}
                     <Route path="./about">
                       <About />
                     </Route>
-                    <Route path="./login">
+                    {/* <Route path="./login">
                       <Login />
                     </Route>
-                    <Route path="./register"></Route>
+                    <Route path="./register">
+                      <Register/>
+                    </Route> */}
                     <Route path="./contact">
                       <Contact />
                     </Route>

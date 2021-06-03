@@ -65,6 +65,7 @@ a:hover, a:focus, a:active {
 
 .form-box{
   height: auto;
+  width: auto;
   padding: 25px;
   margin-bottom: 30px;
   text-align: center;

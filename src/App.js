@@ -8,7 +8,7 @@ import Login from './Components/Login';
 import Donate from './Components/Donor/Donate';
 import Dashboard from "./Components/Donor/Dashboard";
 import Register from './Components/Register';
-import MedicineTable from "./Components/MedicineTable"
+import RequestMedicine from './Components/Needy Person/RequestMedicine';
 
 const App=()=> {
   return(
@@ -22,7 +22,7 @@ const App=()=> {
           <Route path="/donate" component={Donate}></Route>
           <Route path="/donar-dashboard" component={Dashboard}></Route>
           <Route path="/register" component={Register}></Route>
-          <Route path="/table" component={MedicineTable}></Route>
+          <Route path="/request-form" component={RequestMedicine}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>

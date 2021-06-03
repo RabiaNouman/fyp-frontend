@@ -3,6 +3,15 @@ import Header from './Header';
 import Reason from './Reason';
 
 function Home(){
+
+    function donateNow(event){
+        window.location.href = "/login";
+    }
+
+    function requestNow(event){
+        window.location.href = "/request-form";
+    }
+
     return(
         <div className="div-bg-color">
         <Header/>
@@ -19,7 +28,9 @@ function Home(){
                         <div className="carousel-caption">
                         <h2 className="carousel-title bounceInDown animated slow">Because they need your help</h2>
                         <h4 className="carousel-subtitle bounceInUp animated slow ">Do not let them down</h4>
-                        <a href="#" className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
+                        <button onClick={donateNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</button>
+                        <br></br>
+                        <button onClick={requestNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">REQUEST NOW</button>
                         </div> 
                     </div>
                     </div>
@@ -29,7 +40,9 @@ function Home(){
                         <div className="carousel-caption">
                         <h2 className="carousel-title bounceInDown animated slow">Together we can improve their lives</h2>
                         <h4 className="carousel-subtitle bounceInUp animated slow"> So let's do it !</h4>
-                        <a href="#" className="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
+                        <button onClick={donateNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</button>
+                        <br></br>
+                        <button onClick={requestNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">REQUEST NOW</button>
                         </div> 
                     </div>
                     </div>
@@ -39,7 +52,9 @@ function Home(){
                         <div className="carousel-caption">
                         <h2 className="carousel-title bounceInDown animated slow" >A penny is a lot of money, if you have not got a penny.</h2>
                         <h4 className="carousel-subtitle bounceInUp animated slow">You can make the diffrence !</h4>
-                        <a href="#" className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
+                        <button onClick={donateNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</button>
+                        <br></br>
+                        <button onClick={requestNow} className="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">REQUEST NOW</button>
                         </div>
                     </div>
                     </div>
