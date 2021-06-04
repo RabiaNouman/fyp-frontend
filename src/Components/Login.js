@@ -6,6 +6,26 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [choice, setChoice] = useState("");
+  var [id, setId] = useState("");
+
+
+  function handleAdminId (data){
+    if(data !== null)
+    {
+      id=data;
+      localStorage.setItem('loginId',id);
+      window.location.href = "/donar-dashboard";
+    }
+  }
+
+  function handleDonorId (data){
+    if(data !== null)
+    {
+      id=data;
+      localStorage.setItem('loginId',id);
+      window.location.href = "/donar-dashboard";
+    }
+  }
 
   function login(event) {
     event.preventDefault();
@@ -19,19 +39,23 @@ function Login() {
     console.log(choice);
     if(choice==="admin")
     {
-      return fetch("/administrator/login", {
+      return fetch("/administrator/login", 
+      {
         method: "post",
         body: JSON.stringify(user),
-        headers: {
+        headers: 
+        {
           "Content-Type": "application/json",
         },
-      }).then((res) => {
-        console.log(res.status)
-        if (res.status == 400) {
-          window.location.href = "/donar-dashboard";
-          console.log(res.status)
-        }
-      });
+      })
+      .then((response) => 
+      {
+        console.log(response);
+        response.json().then(data =>
+        {
+          handleAdminId(data);
+        })
+    });
     }
     else if(choice==="donor")
     {
@@ -41,15 +65,16 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-      }).then((res) => {
-        console.log(res.status)
-        if (res.status == 400) {
-          window.location.href = "/donar-dashboard";
-          console.log(res.status)
-        }
-      });
-    }
+      }).then((response) => 
+      {
+        console.log(response);
+        response.json().then(data =>
+        {
+          handleDonorId(data);
+        })
+    });
   }
+}
 
   return (
     <div className="div-bg-color">
