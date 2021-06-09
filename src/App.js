@@ -9,6 +9,7 @@ import Donate from './Components/Donor/Donate';
 import Dashboard from "./Components/Donor/Dashboard";
 import Register from './Components/Register';
 import RequestMedicine from './Components/Needy Person/RequestMedicine';
+import MedicineTable from './Components/MedicineTable'
 
 const App=()=> {
   return(
@@ -23,6 +24,7 @@ const App=()=> {
           <Route path="/donar-dashboard" component={Dashboard}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/request-form" component={RequestMedicine}></Route>
+          <Route path="/med-tbl" component={MedicineTable}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>
