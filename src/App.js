@@ -6,10 +6,13 @@ import {Route,BrowserRouter, Switch} from 'react-router-dom';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Donate from './Components/Donor/Donate';
-import Dashboard from "./Components/Donor/Dashboard";
+import DonorDashboard from "./Components/Donor/Dashboard";
+import AdminDashboard from "./Components/Admin/Dashboard";
 import Register from './Components/Register';
 import RequestMedicine from './Components/Needy Person/RequestMedicine';
-import MedicineTable from './Components/MedicineTable'
+import DonorProfile from './Components/Donor/Profile';
+import AllDonors from './Components/Admin/AllDonors';
+import AdminProfile from './Components/Admin/Profile';
 
 const App=()=> {
   return(
@@ -21,10 +24,13 @@ const App=()=> {
           <Route path="/login" component={Login}></Route>
           <Route path="/contact" component={Contact}></Route>
           <Route path="/donate" component={Donate}></Route>
-          <Route path="/donar-dashboard" component={Dashboard}></Route>
+          <Route path="/donor-dashboard" component={DonorDashboard}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/request-form" component={RequestMedicine}></Route>
-          <Route path="/med-tbl" component={MedicineTable}></Route>
+          <Route path="/donor-profile" component={DonorProfile}></Route>
+          <Route path="/admin-dashboard" component={AdminDashboard}></Route>
+          <Route path="/donors" component={AllDonors}></Route>
+          <Route path="/admin-profile" component={AdminProfile}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>

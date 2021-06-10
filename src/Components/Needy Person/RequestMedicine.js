@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import { useAlert } from 'react-alert'
+import Alert from 'react-bootstrap/Alert'
 
 function RequestMedicine() {
   const [patientname, setPatientname] = useState("");
@@ -19,6 +19,12 @@ function RequestMedicine() {
 
   function handleRequestId(data) {
     if (data !== null) {
+      console.log("me idhr hn baji");
+      return(
+        <Alert variant="primary">
+          Requested  Successfully!{' '}
+      </Alert>
+      )
       //alert.show("Requested Successfully");
     }
   }

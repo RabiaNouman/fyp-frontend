@@ -16,31 +16,23 @@ function Dashboard() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(res=>{
-      console.log(res);
-      setDonations(res.data)
-      console.log(donations)
     })
-    .catch(err=>{
-      console.log(err);
-    })
-    // .then((response) => {
-    //   if (response.status === 404) 
-    //   {
-    //     console.log("No donation is found....");
-    //   } 
-    //   else 
-    //   {
-    //     console.log(response);
-    //     response.json().then((data) => {
-    //       //StoreDonationData(data);
-    //       console.log(data);
-    //       setDonations([data]);
-    //       console.log("donation ka data");
-    //       console.log(donations);
-    //     });
-    //   }
-    // });
+    .then((response) => {
+      if (response.status === 404) 
+      {
+        console.log("No donation is found....");
+      } 
+      else 
+      {
+        console.log(response);
+        response.json().then((data) => {
+          console.log(data);
+          setDonations(data);
+          // console.log("donation ka data");
+          // console.log(donations);
+        });
+      }
+    });
     //setDonations(data);
     //console.log(donations);
   }, []);
@@ -48,32 +40,11 @@ function Dashboard() {
   function donateNow() {
     window.location.href = "/donate";
   }
-
-  function StoreDonationData(data) {}
-
-  function GetDonationData() {
-    // id = localStorage.getItem("loginId");
-    // console.log(id);
-    // return fetch("/donation/:id", {
-    //   method: "get",
-    //   //body: JSON.stringify(id),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // }).then((response) => {
-    //   if (response.status === 404) {
-    //     console.log("No donation is found....");
-    //   } else {
-    //     console.log(response);
-    //     response.json().then((data) => {
-    //       StoreDonationData(data);
-    //     });
-    //   }
-    // });
-  }
   return (
     <div>
       <Header />
+      {console.log("donation")}
+      {console.log(donations)}
       <div className="page-heading text-center">
         <div className="container zoomIn animated">
           <button
@@ -92,14 +63,8 @@ function Dashboard() {
       </div>
 
       <form className="form-group">
-        <div>
-          {/* <ul>
-            {donations.map(donation=>(
-              <li key={donation.id}>{donation.medname}</li>
-            ))
-            }
-          </ul> */}
-          {/* <Table>
+        <div className="container">
+          <Table className="styled-table">
             <Thead>
               <Tr>
                 <Th>Medicie Name</Th>
@@ -108,13 +73,15 @@ function Dashboard() {
               </Tr>
             </Thead>
             <Tbody>
+              {donations.map(donation=>
               <Tr>
-                <Td>Tablescon</Td>
-                <Td>9 April 2019</Td>
-                <Td>East Annex</Td>
+                <Td>{donation.medname}</Td>
+                <Td>{donation.mg}</Td>
+                <Td>{donation.quantity}</Td>
               </Tr>
+              )}
             </Tbody>
-          </Table> */}
+          </Table>
         </div>
       </form>
     </div>

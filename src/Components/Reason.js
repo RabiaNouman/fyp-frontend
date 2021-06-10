@@ -47,7 +47,7 @@ function ReasonsComponent(){
                                 </div>
                                 <h3 className="col-title">our program</h3>
                                 <div className="col-details">
-                                    <p>Our program is to provide needy persons and donar a platform where donor can easily do donation and needy people can get it!</p>
+                                    <p>Our program is to provide needy persons and donor a platform where donor can easily do donation and needy people can get it!</p>
                                 </div>
                         </div>
                         </div>

@@ -13,21 +13,39 @@ body {
   background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%); */
 }
 
-th{
-  text-align:center;
+.lable-design{
+  align-content: flex-start;
+}
+
+.table-heading{
+  font-size: 20px;
+  background: #1f76bd;
+  border-bottom: 1px solid #144d7b;
+  color: #fff;
+  font-family: cursive;
+}
+
+.row{
+  font-size: 15px;
 }
 
 tbody{
   text-align: center;
-  font-size: 28px;
   font-family: cursive;
 }
 
 .table-style{
   margin-top: 60px;
-  text-align: center;
   border: 2px;
-  border-style: solid;
+  border-style:groove;
+  border-radius: 30px;
+  column-width: 5cm;
+  height: auto;
+  width: auto;
+}
+
+.table-heading{
+  text-align: center;
   background-color: #0076a3;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMjgwODE0IiB5MT0iLTAuMTAyMjA4IiB4Mj0iMC43MTkxODYiIHkyPSIxLjEwMjIwOCI+PHN0b3Agb2Zmc2V0PSItMjUlIiBzdG9wLWNvbG9yPSIjMTE1YjliIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxMjkwZjgiLz48c3RvcCBvZmZzZXQ9IjEyNSUiIHN0b3AtY29sb3I9IiMxMTViOWIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -35,19 +53,14 @@ tbody{
   background-image: -webkit-linear-gradient(290deg, #115b9b -25%, #1290f8 50%, #115b9b 125%);
   background-image: linear-gradient(160deg, #115b9b -25%, #1290f8 50%, #115b9b 125%);
   color: #fff;
-  border-radius: 50px;
-  height: auto;
-  width: auto;
 }
 
-thead{
-  font-size: 42px;
-  font-weight: bold;
-  text-align: center;
-  font-family:cursive;
+.table-row{
+  text-align: left;
+  background-color: #fff;
+  background-size: 100%;
+  color: #0076a3;
 }
-
-
 
 h1,
 h2,
@@ -634,7 +647,7 @@ form .alert {
 
 /* Tabeles
 ================================= */
-.table-style-1 thead {
+/* .table-style-1 thead {
   background: #1f76bd;
   border-bottom: 1px solid #144d7b;
   color: #fff;
@@ -656,7 +669,7 @@ form .alert {
 .table-style-2 td,
 .table-style-2 th {
   border-bottom: 1px solid #1f76bd;
-}
+} */
 
 /* Tabs
 ================================= */

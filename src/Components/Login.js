@@ -14,7 +14,7 @@ function Login() {
     {
       id=data;
       localStorage.setItem('loginId',id);
-      window.location.href = "/donar-dashboard";
+      window.location.href = "/admin-dashboard";
     }
   }
 
@@ -23,7 +23,7 @@ function Login() {
     {
       id=data;
       localStorage.setItem('loginId',id);
-      window.location.href = "/donar-dashboard";
+      window.location.href = "/donor-dashboard";
     }
   }
 

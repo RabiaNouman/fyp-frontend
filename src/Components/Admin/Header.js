@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, BrowserRouter, Link, Switch } from "react-router-dom";
 import Home from "../Home";
-import About from "../About";
-import Contact from "../Contact";
-import Profile from "./Profile";
+import AllDonors from "./AllDonors";
 import Dashboard from "./Dashboard";
+import Profile from "./Profile";
+//import Profile from "./Profile";
 
 function Header() {
   return (
@@ -95,35 +95,29 @@ function Header() {
               <div id="navbar" className="navbar-collapse collapse pull-right">
                 <ul className="nav navbar-nav">
                   <li>
-                    <Link to="/donor-dashboard">DASHBOARD</Link>
+                    <Link to="/admin-dashboard">DASHBOARD</Link>
                   </li>
                   <li className="has-child">
-                    <Link to="/donor-profile">PROFILE</Link>
-                  </li>
-                  {/* <li>
-                    <Link to="/about">ABOUT</Link>
+                    <Link to="/admin-profile">PROFILE</Link>
                   </li>
                   <li>
-                    <Link to="/contact">CONTACT</Link>
-                  </li> */}
+                    <Link to="/donors">DONORS</Link>
+                  </li>
                   <li>
                     <Link to="./">LOG OUT</Link>
                   </li>
                 </ul>
                 <BrowserRouter>
                   <Switch>
-                    <Route exact path="./donor-dashboard">
+                    <Route exact path="./admin-dashboard">
                       <Dashboard />
                     </Route>
-                    <Route path="./donor-profile">
+                    <Route path="./admin-profile">
                       <Profile/>
                     </Route>
-                    {/* <Route path="./about">
-                      <About />
+                    <Route path="./donors">
+                      <AllDonors/>
                     </Route>
-                    <Route path="./contact">
-                      <Contact />
-                    </Route> */}
                     <Route path="./">
                       <Home />
                     </Route>

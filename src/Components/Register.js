@@ -28,10 +28,10 @@ function Register() {
         "Content-Type": "application/json",
       },
     }).then((res) => {
-      if (res.status == 400) {
+      if (res.status === 400) {
         {{alert.show("This is me");}}
       }
-      else if (res.status == 500) {
+      else if (res.status === 500) {
         console.log(res);
       }
    });
