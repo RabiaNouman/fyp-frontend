@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import swal from "@sweetalert/with-react";
+import MedicineTable from '../MedicineTable';
 
 function Dashboard() {
   function HandleCritical(critical) {
@@ -22,16 +24,33 @@ function Dashboard() {
       },
     }).then((response) => {
       console.log(response.status);
-      if (response.status === 500) {
-        console.log("Medicine does not exists....");
-      } else if (response.status === 400) {
+      if (response.status === 200) {
         console.log("Accepted....");
+      } else {
+        swal(<div>Medicine Not Present in Stock</div>, {
+          button: true,
+        });
       }
     });
   }
 
-  function Reject() {}
-  
+  function Reject(id) {
+    console.log(id);
+    return fetch(`/reject/${id}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      console.log(response.status);
+      if (response.status === 500) {
+        console.log("Medicine does not exists....");
+      } else if (response.status === 200) {
+        console.log("Rejected....");
+      }
+    });
+  }
+
   let [requests, setRequests] = useState([]);
 
   useEffect(() => {
@@ -101,21 +120,22 @@ function Dashboard() {
                     {r.status === 1 && (
                       <div>
                         <Td>
-                          <button onClick={() => Accept(r.id)}>Accept</button>
+                          <button onClick={() => Accept(r._id)}>Accept</button>
+                          {console.log(r._id)}
                         </Td>
                         <Td>
-                          <button onClick={() => Reject}>Reject</button>
+                          <button onClick={() => Reject(r._id)}>Reject</button>
                         </Td>
                       </div>
                     )}
                     {r.status === 2 && (
                       <div>
-                        <label>Accepted</label>
+                        <p>Accepted</p>
                       </div>
                     )}
                     {r.status === 3 && (
                       <div>
-                        <label>Rejected</label>
+                        <p>Rejected</p>
                       </div>
                     )}
                   </Tr>

@@ -64,7 +64,7 @@ function Dashboard() {
 
       <form className="form-group">
         <div className="container">
-          <Table className="styled-table">
+          <Table className="styled-table" style={{marginLeft:"380px"}}>
             <Thead>
               <Tr>
                 <Th>Medicie Name</Th>

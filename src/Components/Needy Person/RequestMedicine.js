@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../Header";
-import Alert from 'react-bootstrap/Alert'
+import swal from "@sweetalert/with-react";
 
 function RequestMedicine() {
   const [patientname, setPatientname] = useState("");
@@ -20,12 +20,10 @@ function RequestMedicine() {
   function handleRequestId(data) {
     if (data !== null) {
       console.log("me idhr hn baji");
-      return(
-        <Alert variant="primary">
-          Requested  Successfully!{' '}
-      </Alert>
-      )
-      //alert.show("Requested Successfully");
+      swal(
+        <div>Successfully Requsted</div>,{
+        button:true,}
+        )
     }
   }
   function request(event) {
@@ -127,7 +125,7 @@ function RequestMedicine() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="number"
                     name="mg"
                     onChange={(event) => {
                       setMg(event.target.value);
@@ -139,7 +137,7 @@ function RequestMedicine() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="number"
                     name="quantity"
                     onChange={(event) => {
                       setQuantity(event.target.value);
@@ -187,7 +185,7 @@ function RequestMedicine() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="number"
                     name="age"
                     onChange={(event) => {
                       setAge(event.target.value);
@@ -199,7 +197,7 @@ function RequestMedicine() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="number"
                     name="income"
                     onChange={(event) => {
                       setIncome(event.target.value);

@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import Header from "./Header";
+import swal from "@sweetalert/with-react";
 
 function Donate() {
   const [medname, setMedname] = useState("");
@@ -8,10 +9,23 @@ function Donate() {
   const [expiryDate, setExpiryDate] = useState("");
   var id;
 
+  function relodPage(){
+    window.location.reload();
+  }
+
   function donated(data){
     if (data !== null) {
       console.log("successfully donated")
-      //alert.show("Requested Successfully");
+      swal(
+        <div>
+          <div>
+          Donated <b>Successfully</b>
+        </div>
+        <div>
+          <button>Ok</button>
+        </div>
+        </div>
+        )
     }
   }
 
@@ -41,7 +55,7 @@ function Donate() {
       } 
       else 
       {
-        console.log(response);
+        console.log(response.status);
         response.json().then((data) => {
           donated(data);
         });

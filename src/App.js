@@ -13,6 +13,8 @@ import RequestMedicine from './Components/Needy Person/RequestMedicine';
 import DonorProfile from './Components/Donor/Profile';
 import AllDonors from './Components/Admin/AllDonors';
 import AdminProfile from './Components/Admin/Profile';
+import EditDonor from './Components/Admin/EditDonor';
+import Edit from './Components/Admin/Edit';
 
 const App=()=> {
   return(
@@ -31,6 +33,8 @@ const App=()=> {
           <Route path="/admin-dashboard" component={AdminDashboard}></Route>
           <Route path="/donors" component={AllDonors}></Route>
           <Route path="/admin-profile" component={AdminProfile}></Route>
+          <Route path="/edit-donor" component={EditDonor}></Route>
+          <Route path="/edit" component={Edit}></Route>
         </Switch>
         <Footer/>
       </BrowserRouter>

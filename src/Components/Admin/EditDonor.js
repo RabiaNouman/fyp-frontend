@@ -1,63 +1,44 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
-import Edit from "./Edit";
 
-function Profile() {
-  var id;
-  const [admin, setAdmin] = useState("");
-  const [nameload, setNameLoad] = useState(false);
-  const [passwordload, setPasswordLoad] = useState(false);
-  const [emailload, setEmailLoad] = useState(false);
-  const [phonenumload, setPhoneNumLoad] = useState(false);
+function Profile(props) {
+  const [donor, setDonor] = useState("");
 
-  useEffect(() => {
-    id = localStorage.getItem("loginId");
-    console.log(id);
+  // useEffect(() => {
+  //   const search = props.location.search; // returns the URL query String
+  //   const params = new URLSearchParams(search);
+  //   const id = params.get("id");
+  //   console.log(id);
 
-    return fetch(`/administrator/${id}`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
-      console.log(response.status)
-      try
-      {
-        if (response.status === 200) {
-          console.log(response);
-          response.json().then((data) => {
-            console.log(data);
-            setAdmin(data);
-          });
-        }
-        else
-        {
-          console.log(response.status)
-        }
-       }
-      catch(err) {
-        console.log(response.status);
-        console.log(err);
-        console.log("No admin is found....");
-    }
-    });
-  }, []);
-
+  //   return fetch(`/donor/${id}`, {
+  //     method: "get",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then((response) => {
+  //     if (response.status === 200) {
+  //       console.log(response);
+  //       response.json().then((data) => {
+  //         console.log(data);
+  //         setDonor(data);
+  //       });
+  //     } else {
+  //       console.log("No donor is found....");
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="div-bg-color">
       <Header />
-      {nameload ? <Edit name={admin.username}/> : ""}
-      {passwordload ? <Edit name={admin.password}/> : ""}
-      {emailload ? <Edit name={admin.email}/> : ""}
-      {phonenumload ? <Edit name={admin.phoneNumber}/> : ""}
-      {console.log(admin)}
       <div className="page-heading text-center">
         <div className="container zoomIn animated">
           <h1 className="page-title">
-            PROFILE <span className="title-under"></span>
+            Register Yourself <span className="title-under"></span>
           </h1>
-          <p className="page-description">welcome to your profile!</p>
+          <p className="page-description">
+            sign up yourself to help needy persons!
+          </p>
         </div>
       </div>
 
@@ -76,13 +57,13 @@ function Profile() {
                   <br />
                   <br />
                 </div>
-                <div style={{fontFamily:"cursive"}}>
+                <div style={{ fontFamily: "cursive" }}>
                   <div className="form-group" style={{ textAlign: "left" }}>
                     <label>
                       <span style={{ color: "black" }}>
                         <b>Name :</b>
                       </span>
-                      {admin.username}
+                      {donor.donorname}
                     </label>
                     <span
                       style={{
@@ -92,7 +73,7 @@ function Profile() {
                       }}
                     >
                       <lable>
-                        <button onClick={() => setNameLoad(true)} className="button-link">Edit</button>
+                        {/* <button onClick={() => setNameLoad(true)} className="button-link">Edit</button> */}
                       </lable>
                     </span>
                     <br></br>
@@ -102,7 +83,7 @@ function Profile() {
                       <span style={{ color: "black" }}>
                         <b>Password :</b>
                       </span>
-                      {admin.password}
+                      {donor.password}
                     </label>
                     <span
                       style={{
@@ -112,7 +93,7 @@ function Profile() {
                       }}
                     >
                       <lable>
-                        <button onClick={() => setPasswordLoad(true)} className="button-link">Edit</button>
+                        {/* <button onClick={() => setPasswordLoad(true)} className="button-link">Edit</button> */}
                       </lable>
                     </span>
                     <br />
@@ -122,8 +103,9 @@ function Profile() {
                       <span style={{ color: "black" }}>
                         <b>E-mail :</b>
                       </span>
-                      {admin.email}
-                    </label><span
+                      {donor.email}
+                    </label>
+                    <span
                       style={{
                         float: "right",
                         color: "black",
@@ -131,9 +113,29 @@ function Profile() {
                       }}
                     >
                       <lable>
-                        <button onClick={() => setEmailLoad(true)} className="button-link">Edit</button>
+                        {/* <button onClick={() => setEmailLoad(true)} className="button-link">Edit</button> */}
                       </lable>
+                    </span>
+                    <br />
+                  </div>
+                  <div className="form-group" style={{ textAlign: "left" }}>
+                    <label>
+                      <span style={{ color: "black" }}>
+                        <b>Address :</b>
                       </span>
+                      {donor.address}
+                    </label>
+                    <span
+                      style={{
+                        float: "right",
+                        color: "black",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      <lable>
+                        {/* <button onClick={() => setAddressLoad(true)} className="button-link">Edit</button> */}
+                      </lable>
+                    </span>
                     <br />
                   </div>
                   <div className="form-group" style={{ textAlign: "left" }}>
@@ -141,8 +143,9 @@ function Profile() {
                       <span style={{ color: "black" }}>
                         <b>Phone Number :</b>
                       </span>
-                      {admin.phoneNumber}
-                    </label><span
+                      {donor.phoneNumber}
+                    </label>
+                    <span
                       style={{
                         float: "right",
                         color: "black",
@@ -150,12 +153,12 @@ function Profile() {
                       }}
                     >
                       <lable>
-                        <button onClick={() => setPhoneNumLoad(true)} className="button-link">Edit</button>
+                        {/* <button onClick={() => setPhoneNumLoad(true)} className="button-link">Edit</button> */}
                       </lable>
                     </span>
                     <br />
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                   </div>
                 </div>
               </div>

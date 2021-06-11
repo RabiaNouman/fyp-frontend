@@ -9,8 +9,9 @@ function Login() {
   var [id, setId] = useState("");
 
 
-  function handleAdminId (data){
-    if(data !== null)
+  function handleAdminId (data,status){
+    console.log(status);
+    if(status === 200)
     {
       id=data;
       localStorage.setItem('loginId',id);
@@ -18,8 +19,8 @@ function Login() {
     }
   }
 
-  function handleDonorId (data){
-    if(data !== null)
+  function handleDonorId (data,status){
+    if(status === 200)
     {
       id=data;
       localStorage.setItem('loginId',id);
@@ -53,7 +54,7 @@ function Login() {
         console.log(response);
         response.json().then(data =>
         {
-          handleAdminId(data);
+          handleAdminId(data,response.status);
         })
     });
     }
@@ -70,7 +71,7 @@ function Login() {
         console.log(response);
         response.json().then(data =>
         {
-          handleDonorId(data);
+          handleDonorId(data,response.status);
         })
     });
   }
