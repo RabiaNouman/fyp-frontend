@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
-import { useAlert } from 'react-alert'
+import "react-phone-number-input/style.css";
+import swal from "@sweetalert/with-react";
+import PhoneInput from "react-phone-number-input";
+import { useAlert } from "react-alert";
 
 function Register() {
   const [donorname, setName] = useState("");
@@ -18,7 +19,7 @@ function Register() {
       password,
       address,
       phoneNumber,
-      email
+      email,
     };
     console.log(donor);
     return fetch("/donor", {
@@ -29,17 +30,20 @@ function Register() {
       },
     }).then((res) => {
       if (res.status === 400) {
-        {{alert.show("This is me");}}
-      }
-      else if (res.status === 500) {
+        swal(<div>Successfully Registered</div>, {
+          button: true,
+        });
+        window.location.reload();
+        window.location.href = "/login";
+      } else if (res.status === 500) {
         console.log(res);
       }
-   });
+    });
   }
 
   return (
     <div className="div-bg-color">
-      <Header/>
+      <Header />
       <div className="page-heading text-center">
         <div className="container zoomIn animated">
           <h1 className="page-title">
@@ -51,7 +55,7 @@ function Register() {
         </div>
       </div>
 
-      <div className="container" >
+      <div className="container">
         <div className="row">
           <div className="col-md-4"></div>
           <div className="col-md-4">
@@ -60,7 +64,8 @@ function Register() {
                 <div className="form-group">
                   <br />
                   <h1>
-                    <b>Hey babe! Register Yourself</b> <span className="title-under"></span>
+                    <b>Register Yourself</b>{" "}
+                    <span className="title-under"></span>
                   </h1>
                   <br />
                   <br />
@@ -76,8 +81,6 @@ function Register() {
                     placeholder="Enter your name*"
                     required
                   />
-                  <br>
-                  </br>
                 </div>
                 <div className="form-group">
                   <input
@@ -90,8 +93,6 @@ function Register() {
                     placeholder="Enter Password*"
                     required
                   />
-                  <br />
-                  <br />
                 </div>
                 <div className="form-group">
                   <input
@@ -104,8 +105,6 @@ function Register() {
                     placeholder="Enter Email*"
                     required
                   />
-                  <br />
-                  <br />
                 </div>
                 <div className="form-group">
                   <input
@@ -118,17 +117,18 @@ function Register() {
                     placeholder="Enter Address*"
                     required
                   />
-                  <br />
-                  <br />
                 </div>
                 <div className="form-group">
-                <PhoneInput
-                  className="form-control"
-                  placeholder="Enter phone number"
-                  value={phoneNumber}
-                  onChange={setPhonenum}/>
-                  <br>
-                  </br>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    onChange={(event) => {
+                      setPhonenum(event.target.value);
+                    }}
+                    className="form-control"
+                    placeholder="Enter Phone Number*"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <button type="submit" className="btn btn-primary">

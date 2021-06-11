@@ -17,13 +17,13 @@ function RequestMedicine() {
   var [critical, setCritical] = useState("");
   //const alert=useAlert();
 
-  function handleRequestId(data) {
-    if (data !== null) {
-      console.log("me idhr hn baji");
+  function handleRequestId(data,status) {
+    if (status === 200) {
       swal(
         <div>Successfully Requsted</div>,{
         button:true,}
         )
+        window.location.reload();
     }
   }
   function request(event) {
@@ -55,7 +55,7 @@ function RequestMedicine() {
     }).then((response) => {
       console.log(response);
       response.json().then((data) => {
-        handleRequestId(data);
+        handleRequestId(data,response.status);
       });
     });
   }

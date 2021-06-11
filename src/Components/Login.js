@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Route, BrowserRouter, Switch } from "react-router-dom";
 import Header from "./Header";
+import swal from "@sweetalert/with-react";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,14 @@ function Login() {
       localStorage.setItem('loginId',id);
       window.location.href = "/admin-dashboard";
     }
+    else
+    {
+      swal(
+        <div>Login Failed</div>,{
+        button:true,}
+        )
+        window.location.reload(); 
+    }
   }
 
   function handleDonorId (data,status){
@@ -25,6 +34,14 @@ function Login() {
       id=data;
       localStorage.setItem('loginId',id);
       window.location.href = "/donor-dashboard";
+    }
+    else
+    {
+      swal(
+        <div>Login Failed</div>,{
+        button:true,}
+        )
+        window.location.reload(); 
     }
   }
 
@@ -74,6 +91,14 @@ function Login() {
           handleDonorId(data,response.status);
         })
     });
+  }
+  else
+  {
+    swal(
+      <div>Login Failed</div>,{
+      button:true,}
+      )
+      window.location.reload(); 
   }
 }
 

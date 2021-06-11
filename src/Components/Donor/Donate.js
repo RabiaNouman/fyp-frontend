@@ -9,10 +9,6 @@ function Donate() {
   const [expiryDate, setExpiryDate] = useState("");
   var id;
 
-  function relodPage(){
-    window.location.reload();
-  }
-
   function donated(data){
     if (data !== null) {
       console.log("successfully donated")
@@ -21,11 +17,9 @@ function Donate() {
           <div>
           Donated <b>Successfully</b>
         </div>
-        <div>
-          <button>Ok</button>
-        </div>
         </div>
         )
+        window.location.reload();
     }
   }
 
@@ -104,7 +98,7 @@ function Donate() {
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="number"
                     name="mg"
                     onChange={(event) => {
                       setMg(event.target.value);
